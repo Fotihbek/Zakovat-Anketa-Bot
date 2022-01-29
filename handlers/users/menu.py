@@ -220,7 +220,7 @@ async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
         await call.message.delete()
         await call.message.answer("Tekshirish uchun yuborildi")
         await state.reset_state(with_data=False)
-    if boo == "false":
+    elif boo == "false":
         await call.message.delete()
         await call.message.answer("Ma'lumotlar bekor qilindi, qaytadan kiritishingiz mumkin")
         await state.reset_state(with_data=False)
@@ -228,7 +228,7 @@ async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
 @dp.callback_query_handler(diff_callback.filter(get='check'), chat_id=ADMIN)
 async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
     boo = callback_data["tuman"]
-    elif boo == "true":
+    if boo == "true":
         message = await call.message.edit_reply_markup()
         await message.send_copy(chat_id=-1001571086713)
         #await bot.send_message(chat_id=CHANEL[0], text="hhh")
