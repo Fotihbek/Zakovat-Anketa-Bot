@@ -219,6 +219,7 @@ async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
         await bot.send_message(chat_id=ADMIN,text=f"Tuman: {data['tuman']}\nMahalla: {data['mahalla']}\nJamoa nomi: {data['jamoa']}\n\n👤Guruh sardori:\n{data['sardor']}\n\n👤2-ishtokchi:\n{data['person2']}\n\n👤3-ishtokchi:\n{data['person3']}\n\n👤4-ishtokchi:\n{data['person4']}\n\n👤5-ishtokchi:\n{data['person5']}\n\n👤6-ishtokchi:\n{data['person6']}\n", reply_markup=check)
         await call.message.delete()
         await call.message.answer("Tekshirish uchun yuborildi")
+        await state.reset_state(with_data=False)
     if boo == "false":
         await call.message.delete()
         await call.message.answer("Ma'lumotlar bekor qilindi, qaytadan kiritishingiz mumkin")
@@ -227,14 +228,14 @@ async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
 @dp.callback_query_handler(diff_callback.filter(get='check'), chat_id=ADMIN)
 async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
     boo = callback_data["tuman"]
-    if boo == "true":
+    elif boo == "true":
         message = await call.message.edit_reply_markup()
         await message.send_copy(chat_id=-1001571086713)
         #await bot.send_message(chat_id=CHANEL[0], text="hhh")
         await call.message.delete()
         await call.message.answer("Tasdiqladingiz")
 
-    if boo == "false":
+    elif boo == "false":
         await call.message.delete()
         await call.message.answer("Ma'lumotlarni ra'd etdingiz")
 
