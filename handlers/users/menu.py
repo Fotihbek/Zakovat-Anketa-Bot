@@ -6,8 +6,8 @@ from keyboards.default.bosh import boshmenyu, back
 from loader import dp, bot
 from states.login import Edit
 from keyboards.inline.tuman import tumanlarkb, diff_callback, check
-
-
+#170363208
+ADMIN = 732585677
 @dp.message_handler(text="➕ Ro'yhatdan o'tish")
 async def enter_test(message: types.Message):
 
@@ -215,9 +215,9 @@ async def ansrwer_fullname(message: types.Message, state: FSMContext):
 async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
     boo = callback_data["tuman"]
     data = await state.get_data()
-    if boo == "true": #170363208
-        await bot.send_message(chat_id=732585677, text=f"Foydalanuvchi - {call.from_user.mention} ushbu ma'lumotlarni yubormoqda. Tasdiqlaysizmi?")
-        await bot.send_message(chat_id=732585677,text=f"Tuman: {data['tuman']}\nMahalla: {data['mahalla']}\nJamoa nomi: {data['jamoa']}\n\n👤Guruh sardori:\n{data['sardor']}\n\n👤2-ishtokchi:\n{data['person2']}\n\n👤3-ishtokchi:\n{data['person3']}\n\n👤4-ishtokchi:\n{data['person4']}\n\n👤5-ishtokchi:\n{data['person5']}\n\n👤6-ishtokchi:\n{data['person6']}\n", reply_markup=check)
+    if boo == "true": 
+        await bot.send_message(chat_id=ADMIN, text=f"Foydalanuvchi - {call.from_user.mention} ushbu ma'lumotlarni yubormoqda. Tasdiqlaysizmi?")
+        await bot.send_message(chat_id=ADMIN,text=f"Tuman: {data['tuman']}\nMahalla: {data['mahalla']}\nJamoa nomi: {data['jamoa']}\n\n👤Guruh sardori:\n{data['sardor']}\n\n👤2-ishtokchi:\n{data['person2']}\n\n👤3-ishtokchi:\n{data['person3']}\n\n👤4-ishtokchi:\n{data['person4']}\n\n👤5-ishtokchi:\n{data['person5']}\n\n👤6-ishtokchi:\n{data['person6']}\n", reply_markup=check)
         await call.message.delete()
         await call.message.answer("Tekshirish uchun yuborildi")
     if boo == "false":
@@ -225,7 +225,7 @@ async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
         await call.message.answer("Ma'lumotlar bekor qilindi, qaytadan kiritishingiz mumkin")
         await state.reset_state(with_data=False)
 
-@dp.callback_query_handler(diff_callback.filter(get='check'), chat_id=ADMINS)
+@dp.callback_query_handler(diff_callback.filter(get='check'), chat_id=ADMIN)
 async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
     boo = callback_data["tuman"]
     if boo == "true":
