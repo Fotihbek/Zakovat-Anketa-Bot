@@ -6,8 +6,7 @@ from keyboards.default.bosh import boshmenyu, back
 from loader import dp, bot
 from states.login import Edit
 from keyboards.inline.tuman import tumanlarkb, diff_callback, check
-#170363208
-ADMIN = 732585677
+ADMIN = 170363208
 @dp.message_handler(text="➕ Ro'yhatdan o'tish")
 async def enter_test(message: types.Message):
 
