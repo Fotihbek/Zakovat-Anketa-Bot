@@ -216,8 +216,8 @@ async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
     boo = callback_data["tuman"]
     data = await state.get_data()
     if boo == "true":
-        await bot.send_message(chat_id=ADMINS[0], text=f"Foydalanuvchi - {call.from_user.mention} ushbu ma'lumotlarni yubormoqda. Tasdiqlaysizmi?")
-        await bot.send_message(chat_id=ADMINS[0],text=f"Tuman: {data['tuman']}\nMahalla: {data['mahalla']}\nJamoa nomi: {data['jamoa']}\n\n👤Guruh sardori:\n{data['sardor']}\n\n👤2-ishtokchi:\n{data['person2']}\n\n👤3-ishtokchi:\n{data['person3']}\n\n👤4-ishtokchi:\n{data['person4']}\n\n👤5-ishtokchi:\n{data['person5']}\n\n👤6-ishtokchi:\n{data['person6']}\n", reply_markup=check)
+        await bot.send_message(chat_id=170363208, text=f"Foydalanuvchi - {call.from_user.mention} ushbu ma'lumotlarni yubormoqda. Tasdiqlaysizmi?")
+        await bot.send_message(chat_id=170363208,text=f"Tuman: {data['tuman']}\nMahalla: {data['mahalla']}\nJamoa nomi: {data['jamoa']}\n\n👤Guruh sardori:\n{data['sardor']}\n\n👤2-ishtokchi:\n{data['person2']}\n\n👤3-ishtokchi:\n{data['person3']}\n\n👤4-ishtokchi:\n{data['person4']}\n\n👤5-ishtokchi:\n{data['person5']}\n\n👤6-ishtokchi:\n{data['person6']}\n", reply_markup=check)
         await call.message.delete()
         await call.message.answer("Tekshirish uchun yuborildi")
     if boo == "false":
@@ -230,7 +230,7 @@ async def get_word(call: CallbackQuery, callback_data: dict, state: FSMContext):
     boo = callback_data["tuman"]
     if boo == "true":
         message = await call.message.edit_reply_markup()
-        await message.send_copy(chat_id=CHANEL[0])
+        await message.send_copy(chat_id=-1001571086713)
         #await bot.send_message(chat_id=CHANEL[0], text="hhh")
         await call.message.delete()
         await call.message.answer("Tasdiqladingiz")
