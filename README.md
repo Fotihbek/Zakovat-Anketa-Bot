@@ -1,3 +1,6 @@
 # zakovat
 
-Uahbu bot Andijon viloyati doirasida oʻtkazilgan mahallalararo Zakovat tanlovi uchun ishtrokchilarni roʻyhatdan oʻtkazish jarayonni avtomatlashtirishga imkon beradi.  
+Til: Python
+Texnologiya: Aiogram
+
+Ushbu bot Andijon viloyati doirasida oʻtkazilgan mahallalararo Zakovat tanlovi uchun ishtirokchilarni roʻyhatdan oʻtkazish jarayonini avtomatlashtirishga imkon beradi. Olingan maʼlumotlar tartiblanib, alohida kanalda toʻplab boriladi. 
