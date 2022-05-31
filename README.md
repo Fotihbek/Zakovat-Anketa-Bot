@@ -1,4 +1,4 @@
-# zakovat
+# zakovat-anketa-bot
 
 Til: Python
 Texnologiya: Aiogram
