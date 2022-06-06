@@ -8,13 +8,13 @@ import json
 @dp.message_handler(state=None)
 async def bot_echo(message: types.Message, state: FSMContext):
     await message.answer("Matnning ikkinchi qismini kiriting:")
-    await state.update_data({"id": "", "text1": message.text})
+    await state.update_data({"id": "", "birinchi": message.text})
     await MySt.a.set()
 
 @dp.message_handler(state=MySt.a)
 async def bot_echo(message: types.Message, state: FSMContext):
 
-    await state.update_data({"text2": message.text})
+    await state.update_data({"ikkinchi": message.text})
     data = await state.get_data()
     matn = json.dumps(data)
     await message.answer(matn)
