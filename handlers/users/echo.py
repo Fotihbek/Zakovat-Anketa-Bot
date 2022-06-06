@@ -18,5 +18,5 @@ async def bot_echo(message: types.Message, state: FSMContext):
     data = await state.get_data()
     matn = json.dumps(data)
     await message.answer(matn)
-    await message.answer(data)
+    
     await state.reset_state(with_data=True)
