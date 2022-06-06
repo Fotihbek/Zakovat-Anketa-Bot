@@ -17,6 +17,7 @@ async def bot_echo(message: types.Message, state: FSMContext):
     await state.update_data({"ikkinchi": message.text})
     data = await state.get_data()
     matn = json.dumps(data)
+    await message.answer(data)
     await message.answer(matn)
     
     await state.reset_state(with_data=True)
