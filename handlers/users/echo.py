@@ -2,8 +2,9 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 from loader import dp
 from states.Sts import MySt
+import json
 
-# Echo bot
+
 @dp.message_handler(state=None)
 async def bot_echo(message: types.Message, state: FSMContext):
     await message.answer("Matnning ikkinchi qismini kiriting:")
@@ -18,4 +19,4 @@ async def bot_echo(message: types.Message):
     matn = json.dumps(data)
     await message.answer(matn)
     await message.answer(data)
-    await reset_state(with_data=True)
+    await state.reset_state(with_data=True)
