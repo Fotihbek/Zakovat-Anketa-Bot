@@ -12,7 +12,7 @@ async def bot_echo(message: types.Message, state: FSMContext):
     await MySt.a.set()
 
 @dp.message_handler(state=MySt.a)
-async def bot_echo(message: types.Message):
+async def bot_echo(message: types.Message, state: FSMContext):
 
     await state.update_data({"text2": message.text})
     data = await state.get_data()
